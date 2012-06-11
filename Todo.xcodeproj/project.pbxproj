@@ -13,6 +13,8 @@
 		91DD01581585A74600DD835F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 91DD01561585A74600DD835F /* InfoPlist.strings */; };
 		91DD015A1585A74600DD835F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 91DD01591585A74600DD835F /* main.m */; };
 		91DD015E1585A74600DD835F /* TodoAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 91DD015D1585A74600DD835F /* TodoAppDelegate.m */; };
+		91DD016B1585A78200DD835F /* TodoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 91DD01691585A78200DD835F /* TodoViewController.m */; };
+		91DD016C1585A78200DD835F /* TodoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 91DD016A1585A78200DD835F /* TodoViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,12 +22,15 @@
 		91DD014D1585A74600DD835F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		91DD014F1585A74600DD835F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		91DD01511585A74600DD835F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		91DD01551585A74600DD835F /* Todo-Info.plist */ = {isa = PBXFileReference; path = "Todo-Info.plist"; sourceTree = "<group>"; };
+		91DD01551585A74600DD835F /* Todo-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Todo-Info.plist"; sourceTree = "<group>"; };
 		91DD01571585A74600DD835F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		91DD01591585A74600DD835F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		91DD015B1585A74600DD835F /* Todo-Prefix.pch */ = {isa = PBXFileReference; path = "Todo-Prefix.pch"; sourceTree = "<group>"; };
-		91DD015C1585A74600DD835F /* TodoAppDelegate.h */ = {isa = PBXFileReference; path = TodoAppDelegate.h; sourceTree = "<group>"; };
+		91DD015B1585A74600DD835F /* Todo-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Todo-Prefix.pch"; sourceTree = "<group>"; };
+		91DD015C1585A74600DD835F /* TodoAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TodoAppDelegate.h; sourceTree = "<group>"; };
 		91DD015D1585A74600DD835F /* TodoAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TodoAppDelegate.m; sourceTree = "<group>"; };
+		91DD01681585A78200DD835F /* TodoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TodoViewController.h; sourceTree = "<group>"; };
+		91DD01691585A78200DD835F /* TodoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TodoViewController.m; sourceTree = "<group>"; };
+		91DD016A1585A78200DD835F /* TodoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TodoViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +79,9 @@
 			children = (
 				91DD015C1585A74600DD835F /* TodoAppDelegate.h */,
 				91DD015D1585A74600DD835F /* TodoAppDelegate.m */,
+				91DD01681585A78200DD835F /* TodoViewController.h */,
+				91DD01691585A78200DD835F /* TodoViewController.m */,
+				91DD016A1585A78200DD835F /* TodoViewController.xib */,
 				91DD01541585A74600DD835F /* Supporting Files */,
 			);
 			path = Todo;
@@ -142,6 +150,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				91DD01581585A74600DD835F /* InfoPlist.strings in Resources */,
+				91DD016C1585A78200DD835F /* TodoViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -154,6 +163,7 @@
 			files = (
 				91DD015A1585A74600DD835F /* main.m in Sources */,
 				91DD015E1585A74600DD835F /* TodoAppDelegate.m in Sources */,
+				91DD016B1585A78200DD835F /* TodoViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
