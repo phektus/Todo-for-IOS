@@ -8,7 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TodoViewController : UITableViewController
+@interface TodoViewController : UITableViewController {
+    NSMutableArray *todoItems;
+}
 
 @property (strong, nonatomic) UIBarButtonItem *createButton;
 

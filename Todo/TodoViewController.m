@@ -26,8 +26,15 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
+    self.navigationItem.title = @"Todo App";
+    
+    // add the Create button
     UIBarButtonItem *createButton = [[UIBarButtonItem alloc] initWithTitle:@"Create" style:UIBarButtonSystemItemAdd target:self action:@selector(create:)];
     self.navigationItem.rightBarButtonItem = createButton;
+    
+    // initialize Todo
+    todoItems = [[NSMutableArray alloc] init];
 }
 
 - (void)viewDidUnload
@@ -43,8 +50,11 @@
 }
 
 - (IBAction)create:(UIBarButtonItem *)sender {
-    UIAlertView *myAlert = [[UIAlertView alloc] initWithTitle:@"This is an alert" message:@"Create!" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-    [myAlert show];
+    int index = todoItems.count + 1;
+    [todoItems addObject:[NSString stringWithFormat:@"%i", index]];
+    NSIndexPath *newIndexPath = [NSIndexPath indexPathForRow:todoItems.count-1 inSection:0];
+    
+    [self.tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath] withRowAnimation:UITableViewRowAnimationBottom];
 }
 
 #pragma mark - Table view data source
@@ -54,7 +64,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 10;
+    return [todoItems count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -65,11 +75,10 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:CellIdentifier];
     }
     
-    NSString *tempString = [NSString stringWithFormat:@"Row %i", indexPath.row];
-    cell.textLabel.text = tempString;
-    cell.detailTextLabel.text = @"Edit";
+    // configure the cell
+    cell.textLabel.text = [todoItems objectAtIndex:indexPath.row];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     
-    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     return cell;
 }
 
