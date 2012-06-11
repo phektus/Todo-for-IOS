@@ -24,14 +24,13 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    
     self.navigationItem.title = @"Todo App";
+    self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    self.navigationItem.rightBarButtonItem.enabled = NO;
     
     // add the Create button
     UIBarButtonItem *createButton = [[UIBarButtonItem alloc] initWithTitle:@"Create" style:UIBarButtonSystemItemAdd target:self action:@selector(create:)];
-    self.navigationItem.rightBarButtonItem = createButton;
+    self.navigationItem.leftBarButtonItem = createButton;
     
     // initialize Todo
     todoItems = [[NSMutableArray alloc] init];
@@ -55,6 +54,7 @@
     NSIndexPath *newIndexPath = [NSIndexPath indexPathForRow:todoItems.count-1 inSection:0];
     
     [self.tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath] withRowAnimation:UITableViewRowAnimationBottom];
+    self.navigationItem.rightBarButtonItem.enabled = YES;
 }
 
 #pragma mark - Table view data source
@@ -86,6 +86,16 @@
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     UIAlertView *myAlert = [[UIAlertView alloc] initWithTitle:@"This is an alert" message:@"Whaddup!" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
     [myAlert show];
+}
+
+- (void) tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        // delete model first
+        [todoItems removeObjectAtIndex:indexPath.row];
+        // then delete the row in the table view
+        [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        
+    }
 }
 
 @end
